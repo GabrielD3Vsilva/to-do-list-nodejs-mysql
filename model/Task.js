@@ -1,9 +1,8 @@
-const connectToDb = require('../database/db');
-const Sequelize = require('sequelize');
+const db = require('../database/db');
 
-const Tasks = new connectToDb.define('tarefas', {
-    name: Sequelize.STRING
+const Tasks = db.sequelize.define('tarefa', {
+    name: db.Sequelize.STRING
 });
 
-module.exports = Tasks;
+module.exports = Tasks
 
