@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+    <title>To Do List</title>
 </head>
 <body>
+    <header>
+        <h1>To Do List</h1>
+    </header>
     <form action="/create" method="post">
         <input type="text" name="name" id="name" placeholder="Escreva aqui uma tarefa">
         <input type="submit" value="Adicionar">
     </form>
+
+    <section>
+        <ul>
+            <% taskList.forEach((task) => { %>
+            <li>
+                <%= task.name %>
+            </li>
+            <% }) %>
+        </ul>
+    </section>
 </body>
 </html>
