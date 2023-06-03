@@ -3,6 +3,7 @@ const Tasks = require('../model/Task');
 
 const home = async (req, res) => {
     try {
+        // const Delete = Tasks.DeleteOne({id_: req.params.id});
         const taskList = await Tasks.findAll();
         res.render('index', {taskList});
     } catch (err) {
@@ -22,17 +23,24 @@ const CreateOneTask = async (req, res) => {
     }
 }   
 
-// const DeleteOneTask = async (req, res) => {
-//     try {
-//         const delete = await Tasks.find({}) 
+const DeleteOneTask = async (req, res) => {
+    try {
+        const id = req.params.id
+        const busca = await Tasks.destroy({
+            where: {
+                id
+            }
+        });
 
-//     } catch (err) {
-//         res.status(500).send({ error: err.message });
-//     }
-// }
+        res.redirect('/home');
+
+    } catch (err) {
+        res.status(500).send({ error: err.message });
+    }
+}
 
 module.exports = {
     home,
     CreateOneTask,
-    // DeleteOneTask
+    DeleteOneTask
 }

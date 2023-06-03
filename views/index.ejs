@@ -20,7 +20,8 @@
         <ul>
             <% taskList.forEach((task) => { %>
             <li>
-                <%= task.name %>
+                <p><%= task.name %></p>
+                <p><a href="/delete/<%=task.id%>">Deletar</a></p>
             </li>
             <% }) %>
         </ul>

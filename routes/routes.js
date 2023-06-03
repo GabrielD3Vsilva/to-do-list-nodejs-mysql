@@ -3,7 +3,7 @@ const TaskController = require('../controller/TaskController');
 
 routes.get('/home', TaskController.home);
 routes.post('/create',TaskController.CreateOneTask);
-// routes.get('/delete/:id', TaskController.DeleteOneTask);
+routes.get('/delete/:id', TaskController.DeleteOneTask);
 
 
 module.exports = routes;
