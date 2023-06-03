@@ -11,17 +11,22 @@
     <header>
         <h1>To Do List</h1>
     </header>
-    <form action="/create" method="post">
-        <input type="text" name="name" id="name" placeholder="Escreva aqui uma tarefa">
-        <input type="submit" value="Adicionar">
-    </form>
+
+    <aside class="form">
+        <form action="/create" method="post">
+            <input type="text" name="name" id="name" placeholder="Escreva aqui uma tarefa" required class="input">
+            <input type="submit" value="Adicionar" class="submit" required>
+        </form>
+    </aside>
 
     <section>
         <ul>
             <% taskList.forEach((task) => { %>
             <li>
-                <p><%= task.name %></p>
-                <p><a href="/delete/<%=task.id%>">Deletar</a></p>
+                <div class="div">
+                    <p class="name"><%= task.name %></p>
+                    <p class="delete"><a href="/delete/<%=task.id%>">Deletar</a></p>
+                </div>
             </li>
             <% }) %>
         </ul>
